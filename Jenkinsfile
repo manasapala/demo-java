@@ -11,13 +11,13 @@ pipeline {
           stage('Test'){
             steps{
                 
-                sh "mvn test"
+                sh "/usr/lib/apache-maven-3.6.0/bin/mvn test"
                 }
                }
           stage('Build & Package'){
             steps{
                 
-                sh "mvn package"
+                sh "/usr/lib/apache-maven-3.6.0/bin/mvn package"
                 }
                }
           }
