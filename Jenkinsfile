@@ -1,26 +1,20 @@
 pipeline {
-    agent any {
+    agent any
     stages {
-          
-          stage('Cloning from SCM & cleaning the repo'){
-            steps{
-              
-              git 'https://github.com/manasapala/demo-java.git'
-              
-              }
-          }
-          stage('Test'){
-            steps{
-                
+        stage('---clean---') {
+            steps {
+                sh "/usr/lib/apache-maven-3.6.0/bin/mvn clean"
+            }
+        }
+        stage('--test--') {
+            steps {
                 sh "/usr/lib/apache-maven-3.6.0/bin/mvn test"
-                }
-               }
-          stage('Build & Package'){
-            steps{
-                
+            }
+        }
+        stage('--package--') {
+            steps {
                 sh "/usr/lib/apache-maven-3.6.0/bin/mvn package"
-                }
-               }
-          }
-   }
-   }
+            }
+        }
+    }
+}
