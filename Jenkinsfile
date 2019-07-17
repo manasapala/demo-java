@@ -8,6 +8,7 @@ pipeline {
               git 'https://github.com/manasapala/demo-java.git'
               
               }
+          }
           stage('Test'){
             steps{
                 
